@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" th:href="@{/form-stylesheet.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Javagram</h2>
+    <form method="post" th:object="${user}" th:action="@{/submitItem}">
+        <input type="text" placeholder="First Name" th:field="*{firstName}">
+        <p style="color:red"
+           th:if="${#fields.hasErrors('firstName')}"
+           th:errors="*{firstName}">Nombre Error</p>
+
+        <input type="text" placeholder="Last Name" th:field="*{lastName}">
+        <p style="color:red"
+           th:if="${#fields.hasErrors('lastName')}"
+           th:errors="*{lastName}">lastName Error</p>
+
+        <input type="text" placeholder="Username" th:field="*{userName}">
+        <p style="color:red"
+           th:if="${#fields.hasErrors('userName')}"
+           th:errors="*{userName}">userName Error</p>
+
+        <input type="text" placeholder="Email" th:field="*{email}">
+        <p style="color:red"
+           th:if="${#fields.hasErrors('email')}"
+           th:errors="*{email}">email Error</p>
+
+        <p style="font-weight: bold">Date of Birth</p>
+        <input type="date" th:field="*{dateOfBirth}">
+        <p style="color:red"
+           th:if="${#fields.hasErrors('dateOfBirth')}"
+           th:errors="*{dateOfBirth}">date Error</p>
+
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</div>
+</body>
+</html>
