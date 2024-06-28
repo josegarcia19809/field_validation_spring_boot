@@ -1,5 +1,6 @@
 package com.example.field_validation.models;
 
+import com.example.field_validation.controllers.Age;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -23,6 +24,7 @@ public class User {
     private String email;
     @Past(message = "La fecha debe ser en el pasado")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Age (message = "Must be at least 18")
     private Date dateOfBirth;
 
     //Generate a complete constructor.
