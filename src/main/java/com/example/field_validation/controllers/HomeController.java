@@ -25,6 +25,9 @@ public class HomeController {
     @PostMapping("/submitItem")
     public String handleSubmit(@Valid @ModelAttribute("user") User user,
                                BindingResult bindingResult) {
+        if (user.getFirstName().equals(user.getLastName())) {
+            bindingResult.rejectValue("firstName", "", "Please enter valid data");
+        }
         if (bindingResult.hasErrors()) {
             return "sign-up";
         }
