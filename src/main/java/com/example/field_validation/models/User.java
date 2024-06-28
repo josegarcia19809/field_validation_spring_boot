@@ -1,6 +1,7 @@
 package com.example.field_validation.models;
 
 import com.example.field_validation.controllers.Age;
+import com.example.field_validation.validation.Username;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -17,7 +18,8 @@ public class User {
     @Size(min = 2, message = "Last name is too short")
     private String lastName;
     @NotBlank(message = "Username cannot be blank")
-    @Size(min = 7, message = "Last name is too short")
+    @Size(min = 7, message = "Username is too short")
+    @Username(message = "Cannot contain special characters or uppercase characters ")
     private String userName;
     @NotBlank(message = "El correo electrónico es obligatorio")
     @Email(message = "El correo electrónico debe ser válido")
